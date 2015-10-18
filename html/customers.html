@@ -1,0 +1,52 @@
+<html ng-app="homeApp">
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Components Samples</title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+	</head>
+	<body style="background-color: #337AB7" ng-controller="CustomerController">
+    <div class="container well" ng-init="listCustomers()">
+      <font color="#337AB7" size="5">
+        <span class="glyphicon glyphicon-home">HomeClean</span>
+      </font>
+      
+      <hr color="#337AB7">
+      
+      <div class="panel-group" id="accordion">
+	        
+	      <div ng-repeat="customer in customers" class="panel panel-{{$index % 2 == 0 ? 'primary' : 'warning'}}">
+  	      <div class="panel-heading">
+  	        <h4 class="panel-title">
+  	          <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
+  	            {{customer.first_name}} {{customer.last_name}}
+  	          </a>
+  	        </h4>
+  	      </div>
+  	      <div id="collapse{{$index}}" class="panel-collapse collapse {{$index == 0 ? 'in' : ''}}">
+  	        <div class="panel-body">
+    	        <b>Address:</b>
+    	        <br/>
+    	        {{customer.address1}} {{customer.address2}} {{customer.zip}}
+    	        <br />
+    	        {{customer.city}} {{customer.state}}
+    	        <br />
+  	          <b>Phone:</b> <a href="tel:{{customer.phone}}">{{customer.phone}}</a>
+    	      </div>
+  	        <div class="panel-footer">
+    	        $ <input type="text" size="10" ng-model="price" placeholder="0.00" />
+    	        <button type="submit" class="btn btn-{{$index % 2 == 0 ? 'primary' : 'warning'}}" ng-click="updateCustomer()">Send</button>
+    	      </div>
+  	      </div>
+  	    </div>
+	      
+      </div>
+      
+      <hr color="#337AB7">
+    </div>
+	  <script type="text/javascript" src="../js/jquery.js"></script>
+	  <script type="text/javascript" src="../js/bootstrap.js"></script>
+	  <script type="text/javascript" src="../js/angular.min.js"></script>
+    <script type="text/javascript" src="../js/app.js"></script>
+	</body>
+</html>

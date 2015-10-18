@@ -1,0 +1,54 @@
+Fazer um POST para http://homeclean.herokuapp.com/api/customers
+
+contendo os HEADERS:
+
+Content-Type: application/json
+Accept: application/json
+
+e o BODY do request tem q ser no seguinte formato:
+
+{
+ "api_customer": {
+    "first_name": "Isabela",
+    "last_name": "Goncalves",
+    "address1": "R. Nunes Valente, 1817",
+    "address2": "Ap 703",
+    "zip": "60125035",
+    "city": "Fortaleza",
+    "state": "CE",
+    "ssid": "123456789",
+    "email": "isarcg@gmail.com",
+    "phone": "+5585999854535"
+  }
+}
+
+GET em http://homeclean.herokuapp.com/api/customers para receber um array JSON 
+com os Customers já cadastrados
+
+Yes. You get a 201 http status code with a response body like this:
+
+{
+  "id":3,
+  "first_name":"Melisa",
+  "last_name":"Goncalves",
+  "address1":"R. Nunes Valente, 1817",
+  "address2":"Ap 703",
+  "zip":"60125035",
+  "city":"Fortaleza",
+  "state":"CE",
+  "ssid":"123456789",
+  "email":"melisarcg@gmail.com",
+  "phone":null,
+  "price":"0.0",
+  "created_at":"2015-09-15T13:16:16.483Z",
+  "updated_at":"2015-09-15T13:16:16.483Z"
+}
+
+To update a record you will do a 
+PUT to http://homeclean.herokuapp.com/api/customers/<id> 
+with the JSON in the requent body. 
+You will get a 204 http status code on success with no response body. 
+Actually, 204 means "No content"
+When doing a PUT request the JSON object you send within the body just 
+needs to have the changed fields. 
+There is no need to inform all the record fields. Save bandwidth and speed

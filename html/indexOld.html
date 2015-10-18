@@ -1,0 +1,33 @@
+<html ng-app="homeApp">
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Components Samples</title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+	</head>
+	<body style="background-color: #337AB7" ng-controller="CustomerController">
+    <div class="container well" ng-init="listCustomers()">
+      <font color="#337AB7" size="5">
+        <span class="glyphicon glyphicon-home">HomeClean</span>
+      </font>
+      <hr color="#337AB7">
+      
+      <ul class="nav nav-pills">
+        <li ng-class="{ active:isSelected(1) }">
+          <a href ng-click="selectTab(1)">Customer</a>
+        </li>
+        <li ng-class="{ active:isSelected(2) }">
+          <a href ng-click="selectTab(2)">List</a>
+        </li>
+      </ul>
+      <div class="panel well" ng-show="isSelected(1)" ng-include="'tabOne.html'"></div>
+      <div class="panel well" ng-show="isSelected(2)" ng-include="'tabTwo.html'"></div>
+      
+      <hr color="#337AB7">
+    </div>
+	  <script type="text/javascript" src="../js/jquery.js"></script>
+	  <script type="text/javascript" src="../js/bootstrap.js"></script>
+	  <script type="text/javascript" src="../js/angular.min.js"></script>
+    <script type="text/javascript" src="../js/app.js"></script>
+	</body>
+</html>
